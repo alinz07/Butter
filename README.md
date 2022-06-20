@@ -1,73 +1,121 @@
-# Bookworm
+# Propagatorz
 
-## Table of Contents
-* Introduction
-* User Story
-* Live Link & Screenshots
-* Technologies Used
-* Contact Info/Maintainers
-* Resources
+## **Link to deployed app on heroku**:
 
+</br>
 
-## Introduction
----------------
-Bookworm is a web application that allows users to take part in book reviews and discussions through the use of forms. 
-Users can created new posts (or reviews) of a book and also read and comment on other user’s reviews. 
-Each user has a dashboard that shows all their reviews they have posted as well as the ability to keep a list of books they would like to read.
+## **Table of Contents**
 
+-   [Motivation and Code Overview](#motivation-and-code-overview)
+-   [Technologies Used](#technologies-used)
+-   [User Story](#user-story)
+-   [Instructions to Run App](#instructions-to-run-app)
+-   [Screenshot](#screenshot)
+-   [Contact Info/Maintainers](#contributors)
+-   [Credits](#credits)
 
-## User Story
--------------
-As a user who loves books and discussions with fellow book-lovers, I want a CMS-style blog site where I can post reviews of books I’ve read and also take part in discussions with other users by allowing comments on posts.
+</br>
 
+## **Motivation and Code Overview**
 
-## Live Link & Screenshots
---------------------------
-**View the application here:** <https://asgardians-bookworm.herokuapp.com> <br/>
-**View website screenshots here:**
+Propagatorz is a "plant help line" web application that allows users to share photos and notes regarding thier house plants.
+Users will need to login or sign up first in order to start taking part in the discussions. Feel free to login with: betty@email.com and password: password. We're in the process of migrating the site to a faster host, but once accessed, the Single Page Application is very fast thanks to React. </br>
 
-![Bookworm-main-page](/public/images/home1.png "Main Page")
-![Bookworm-main-page](/public/images/home2.png "Main Page")
-![Bookworm-dashboard](/public/images/sign-in.png "Sign-in Page")
-![Bookworm-create-post-page](/public/images/create-post1.png "Create Post Page")
-![Bookworm-create-post-page](/public/images/create-post2.png "Create Post Page")
-![Bookworm-create-post-page](/public/images/single-post.png "Single Post Page")
+The app is organized in typical React fashion with a client folder and server folder. The server holds the db configuration, db models, schemas and utilities that support the models. The client folder holds all of the function components and page components as well as the build folder that uses webpack to minify and serve the React assets. The client side also has all of the mongoose and graphql queries/mutations/actions/reducers that are ran inside the components.
 
+</br>
 
-## Technologies Used
---------------------
-* HTML
-* CSS
-* JavaScript
-* Web APIs
-    * [Bookcover](https://github.com/w3slley/bookcover-api "Bookcover API")
-* CSS Framework
-    * [Bootstrap](https://getbootstrap.com/docs/5.1/)
-* Handlebars
-* MySql2
-* day.js
-* Node
-* Bcrypt
-* Express
-* Sequelize
-* Nodemon
+## **Technologies Used**
 
+-   React
+-   CSS Framework
+-   [Mui](https://mui.com/material-ui/getting-started/installation/)
+-   Node
+-   Express
+-   Bcrypt
+-   MongoDB
+-   Mongoose
+-   GraphQL
+-   Apollo Server
+-   [Cloudinary](https://cloudinary.com/)
+-   Nodemon
+-   Day.js
+-   JSON Web Tokens (JWT)
 
-## Contributors
----------------
-* [Tony Linz](https://github.com/alinz07)
-* [Lindsey Dubnicka](https://github.com/lindseymiller2567)
-* [Heather Lessard](https://github.com/Hmlessard/)
+</br>
 
+## **User Story**
 
-## Resources
----------------
-* Github repo for w3ssley's bookcover API: https://github.com/w3slley/bookcover-api
+As a catering business owner
+I want a website where clients can book parties and I can manage events
+So that my business gains a more professional reputation and is easier to manage
 
-* Code to parse data from an api on the front end: (https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream)
+-   When a user visits the homepage <br/>
+    then they get a brief description of my business and introductoy information about me
 
-* Heroku proxy: (https://stackoverflow.com/questions/43262121/trying-to-use-fetch-and-pass-in-mode-no-cors) by sideshowbarker
+-   When they select a pricing nav <br/>
+    then pricing information about my services is available
 
-* Image
-    * https://images.unsplash.com/photo-1550399105-c4db5fb85c18?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8Ym9va3N8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60 courtesy of Ed Robinson via unsplash.
-    * https://unsplash.com/photos/bhBONc07WsI courtesy of Annelies Geneyn
+-   When they select book now <br/>
+    then they are taken to a page where my calendar is visible
+
+-   When they view the page with my calendar <br/>
+    they they can see when I'm available and select a date/time to request a booking
+
+-   When Eli views a booking request <br/>
+    then he can choose to accept it or reject it
+
+-   When Eli accepts a request <br/>
+    then that time slot is filled on his calendar
+
+-   When a user logs in <br/>
+    then they are able to see if their request has been accepted or not
+
+-   When a user is logged in <br/>
+    then they can navigate to their events page
+
+-   When a user selects an event <br/>
+    then they are routed to a single event page where they are able to leave comments
+
+-   When Eli logs in <br/>
+    then he has a nav tab where he can view all booked events on one page
+
+<br/>
+
+## **Instructions to Run App**
+
+1. Enter the following command in your terminal to clone the repository
+
+```
+git clone https://github.com/alinz07/Butter.git
+```
+
+2. Ensure you have Node.js installed on your machine. https://nodejs.org/en/download/
+
+3. All NPM packages required for this application are already listed as dependencies in the root directory package.json file. cd into the root directory in your terminal command line and run the command 'npm i' in your terminal to install the necessary packages.
+
+```
+cd <dirname>
+```
+
+```
+npm i
+```
+
+4. To run the application, enter the following command in the root directory
+
+```
+npm start
+```
+
+This will start the application on port 3001 of your local machine. Open your browser and navigate to localhost:3001.
+
+</br>
+
+## **Screenshot**
+
+![Screenshot](./ImagesForReadMe/homepage.png) <br/>
+
+</br>
+
+## **Credits**
