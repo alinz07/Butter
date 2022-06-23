@@ -1,22 +1,15 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class Comment extends Model {}
+class Event extends Model {}
 
-Comment.init(
+Event.init(
     {
         id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
-        },
-        comment_text: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1],
-            },
         },
         user_id: {
             type: DataTypes.INTEGER,
@@ -27,21 +20,33 @@ Comment.init(
             },
             onDelete: "CASCADE",
         },
-        event_id: {
+        date: {
+            type: DataTypes.DATE,
+            allowNull: false,
+        },
+        address: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        time: {
+            type: DataTypes.TIME,
+            allowNull: false,
+        },
+        min_price: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            references: {
-                model: "event",
-                key: "id",
-            },
+        },
+        guests: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
         },
     },
     {
         sequelize,
         freezeTableName: true,
         underscored: true,
-        modelName: "comment",
+        modelName: "event",
     }
 );
 
-module.exports = Comment;
+module.exports = Event;

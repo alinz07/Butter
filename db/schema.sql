@@ -1,3 +1,3 @@
-DROP DATABASE IF EXISTS bookworm_db;
+DROP DATABASE IF EXISTS butter_db;
 
-CREATE DATABASE bookworm_db;
+CREATE DATABASE butter_db;

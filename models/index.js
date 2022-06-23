@@ -1,43 +1,35 @@
-const User = require('./User');
-const Post = require('./Post');
-const Comment = require('./Comment');
-const Book = require('./Book');
-const BookUser = require('./BookUser');
+const User = require("./User");
+const Comment = require("./Comment");
+const Event = require("./Event");
 
-User.belongsToMany(Book, {
-    through: BookUser,
-    foreignKey: 'user_id'
+// User.belongsToMany(Event, {
+//     foreignKey: "user_id",
+// });
+
+User.hasMany(Event, {
+    foreignKey: "user_id",
+    onDelete: "CASCADE",
 });
 
-Book.belongsToMany(User, {
-    through: BookUser,
-    foreignKey: 'book_id'
-})
-
-User.hasMany(Post, {
-    foreignKey: 'user_id',
-    onDelete: 'CASCADE'
-});
-
-Post.belongsTo(User, {
-    foreignKey: 'user_id'
+Event.belongsTo(User, {
+    foreignKey: "event_id",
 });
 
 Comment.belongsTo(User, {
-    foreignKey: 'user_id'
+    foreignKey: "user_id",
 });
 
-Comment.belongsTo(Post, {
-    foreignKey: 'post_id'
+Comment.belongsTo(Event, {
+    foreignKey: "event_id",
 });
 
 User.hasMany(Comment, {
-    foreignKey: 'user_id'
+    foreignKey: "user_id",
 });
 
-Post.hasMany(Comment, {
-    foreignKey: 'post_id',
-    onDelete: 'CASCADE'
+Event.hasMany(Comment, {
+    foreignKey: "post_id",
+    onDelete: "CASCADE",
 });
 
-module.exports = { User, Post, Comment, Book, BookUser };
+module.exports = { User, Event, Comment };
