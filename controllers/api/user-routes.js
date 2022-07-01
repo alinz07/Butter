@@ -29,20 +29,20 @@ router.get("/:id", (req, res) => {
             id: req.params.id,
         },
         attributes: { exclude: ["password"] },
-        include: [
-            {
-                model: Post,
-                include: {
-                    model: Comment,
-                    attributes: ["id", "comment_text", "created_at"],
-                },
-            },
-            {
-                model: Book,
-                attributes: ["book_title"],
-                through: BookUser,
-            },
-        ],
+        // include: [
+        //     {
+        //         model: Post,
+        //         include: {
+        //             model: Comment,
+        //             attributes: ["id", "comment_text", "created_at"],
+        //         },
+        //     },
+        //     {
+        //         model: Book,
+        //         attributes: ["book_title"],
+        //         through: BookUser,
+        //     },
+        // ],
     })
         .then((dbUserData) => {
             if (!dbUserData) {
@@ -102,7 +102,7 @@ router.post("/login", (req, res) => {
             req.session.username = dbUserData.username;
             req.session.loggedIn = true;
 
-            res.json({ user: dbUserData, message: "You are now logged in!" });
+            res.json({ user: dbUserData, message: "You are now logged in" });
         });
     });
 });
