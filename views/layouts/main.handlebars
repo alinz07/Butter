@@ -14,12 +14,31 @@
 
 
 <body>
-  <div class="navbar">
-    <header>
+  <header>
+      <img id="hero" src="images/cooking.jpg" alt="Eli cooking">
+      <div id="welcome-div">
         <a href="/">
-          <img src="../../public/images/butter.jpg" alt="gourmet butter">
+          <img id="butter" src="images/butter.jpg" alt="gourmet butter">
         </a>
-      <nav class="nav">
+        <h1>
+          Welcome to Butt&eacuter <span id="pron">(pron. boo-tare)</span>
+        </h1>
+        <h2>
+          Eli's private event catering
+        </h2>
+        <h6>
+          Fond Du Lac, WI 
+        </h6>
+      </div>
+  </header>
+
+  <p class="welcome">Hello neighbor, my name is Eli and I'd love to cater your
+		next event. I specialize in x and have been perfecting my cooking skills
+		for y years. Other accolades here. Passions and more about you in your
+		free time. Words of friendship/inspiration.
+	</p>
+
+  <nav class="nav">
         <ul>
           <li>
             {{#if loggedIn}}
@@ -36,25 +55,19 @@
         </ul>
         <ul>
           <li>
-            <a href="/login" class="login-link">Login/Signup</a>
+            <a href="/login" class="login-link">Book an event</a>
             {{/if}}
           </li>
         </ul>
-
-      </nav>
-    </header>
-  </div>
+  </nav>
 
   <main>
     {{{ body }}}
   </main>
   <footer>
     &copy; Butter 2022
-    <div class="contributers ">
-      <h3 id="us" class="contributors">Contributors</h3>
-      <ul class="names">
-        <li><a href="https://github.com/alinz07" target="_blank" class=>Tony Linz</a></li>
-      </ul>
+    <div class="footer ">
+      <a href="https://github.com/alinz07" target="_blank" class=>Web design by Tony Linz</a>
     </div>
   </footer>
 

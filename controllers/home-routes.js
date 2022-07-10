@@ -4,29 +4,29 @@ const { User, Event } = require("../models");
 
 // view home page with hero image and all the posts
 router.get("/", (req, res) => {
-    User.findAll({
-        attributes: ["id", "username", "email"],
-    })
-        .then((dbUserData) => {
-            const users = dbUserData.map((user) => user.get({ plain: true }));
-            res.render("homepage", {
-                users,
-                loggedIn: req.session.loggedIn, // only users logged in can see the posts?
-            });
-        })
-        .catch((err) => {
-            console.log(err);
-            res.status(500).json(err);
-        });
+	User.findAll({
+		attributes: ["id", "username", "email"],
+	})
+		.then((dbUserData) => {
+			const users = dbUserData.map((user) => user.get({ plain: true }));
+			res.render("homepage", {
+				users,
+				loggedIn: req.session.loggedIn, // only users logged in can see the posts?
+			});
+		})
+		.catch((err) => {
+			console.log(err);
+			res.status(500).json(err);
+		});
 });
 
 router.get("/login", (req, res) => {
-    if (req.session.loggedIn) {
-        res.redirect("/");
-        return;
-    }
+	if (req.session.loggedIn) {
+		res.redirect("/");
+		return;
+	}
 
-    res.render("login");
+	res.render("login");
 });
 
 // router.get('/post/:id', (req, res) => {
