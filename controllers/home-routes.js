@@ -1,52 +1,32 @@
-const router = require('express').Router();
-const sequelize = require('../config/connection');
-const { User, Post, Comment, Book } = require('../models');
+const router = require("express").Router();
+const sequelize = require("../config/connection");
+const { User, Event } = require("../models");
 
 // view home page with hero image and all the posts
-router.get('/', (req, res) => {
-    Post.findAll({
-        attributes: [
-            'id',
-            'book_title',
-            'book_author',
-            'book_review',
-            'created_at'
-        ],
-        include: [
-            {
-                model: Comment,
-                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-                include: {
-                    model: User,
-                    attributes: ['username']
-                }
-            },
-            {
-                model: User,
-                attributes: ['username']
-            }
-        ]
+router.get("/", (req, res) => {
+    User.findAll({
+        attributes: ["id", "username", "email"],
     })
-        .then(dbPostData => {
-            const posts = dbPostData.map(post => post.get({ plain: true }));
-            res.render('homepage', {
-                posts,
-                loggedIn: req.session.loggedIn // only users logged in can see the posts? 
-            })
+        .then((dbUserData) => {
+            const users = dbUserData.map((user) => user.get({ plain: true }));
+            res.render("homepage", {
+                users,
+                loggedIn: req.session.loggedIn, // only users logged in can see the posts?
+            });
         })
-        .catch(err => {
+        .catch((err) => {
             console.log(err);
-            res.status(500).json(err)
-        })
+            res.status(500).json(err);
+        });
 });
 
-router.get('/login', (req,res) => {
+router.get("/login", (req, res) => {
     if (req.session.loggedIn) {
-        res.redirect('/');
+        res.redirect("/");
         return;
     }
 
-    res.render('login');
+    res.render("login");
 });
 
 // router.get('/post/:id', (req, res) => {
