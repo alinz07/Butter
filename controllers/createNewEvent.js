@@ -15,7 +15,11 @@ router.get("/", withAuth, (req, res) => {
 			const events = dbEventData.map((event) =>
 				event.get({ plain: true })
 			);
-			res.render("new-event", { events, loggedIn: true });
+			res.render("new-event", {
+				events,
+				loggedIn: true,
+				user_id: req.session.user_id,
+			});
 		})
 		.catch((err) => {
 			res.status(500).json(err);
