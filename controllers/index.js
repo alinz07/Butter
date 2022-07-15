@@ -2,15 +2,15 @@ const router = require("express").Router();
 const apiRoutes = require("./api");
 const homeRoutes = require("./home-routes.js");
 const dashboardRoutes = require("./dashboard-routes.js");
-const createNewPostRoutes = require("./create-new-post.js");
+const createNewEventRoutes = require("./createNewEvent.js");
 
 router.use("/", homeRoutes);
 router.use("/api", apiRoutes);
 router.use("/dashboard", dashboardRoutes);
-router.use("/createNewPost", createNewPostRoutes);
+router.use("/createNewEvent", createNewEventRoutes);
 
 router.use((req, res) => {
-    res.status(404).end();
+	res.status(404).end();
 });
 
 module.exports = router;
