@@ -1,10 +1,6 @@
 const User = require("./User");
-const Comment = require("./Comment");
+const Review = require("./Review");
 const Event = require("./Event");
-
-// User.belongsToMany(Event, {
-//     foreignKey: "user_id",
-// });
 
 User.hasMany(Event, {
 	foreignKey: "user_id",
@@ -15,21 +11,12 @@ Event.belongsTo(User, {
 	foreignKey: "user_id",
 });
 
-Comment.belongsTo(User, {
+Review.belongsTo(User, {
 	foreignKey: "user_id",
 });
 
-Comment.belongsTo(Event, {
-	foreignKey: "event_id",
-});
-
-User.hasMany(Comment, {
+User.hasMany(Review, {
 	foreignKey: "user_id",
 });
 
-Event.hasMany(Comment, {
-	foreignKey: "post_id",
-	onDelete: "CASCADE",
-});
-
-module.exports = { User, Event, Comment };
+module.exports = { User, Event, Review };
