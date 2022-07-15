@@ -7,29 +7,29 @@ const Event = require("./Event");
 // });
 
 User.hasMany(Event, {
-    foreignKey: "user_id",
-    onDelete: "CASCADE",
+	foreignKey: "user_id",
+	onDelete: "CASCADE",
 });
 
 Event.belongsTo(User, {
-    foreignKey: "event_id",
+	foreignKey: "user_id",
 });
 
 Comment.belongsTo(User, {
-    foreignKey: "user_id",
+	foreignKey: "user_id",
 });
 
 Comment.belongsTo(Event, {
-    foreignKey: "event_id",
+	foreignKey: "event_id",
 });
 
 User.hasMany(Comment, {
-    foreignKey: "user_id",
+	foreignKey: "user_id",
 });
 
 Event.hasMany(Comment, {
-    foreignKey: "post_id",
-    onDelete: "CASCADE",
+	foreignKey: "post_id",
+	onDelete: "CASCADE",
 });
 
 module.exports = { User, Event, Comment };
