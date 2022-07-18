@@ -1,0 +1,28 @@
+<h2 class="col-sm-3" id="page-title">My Events Dashboard</h2>
+
+<!-- View all user's events -->
+<section class="container-fluid row align-items-center">
+  <div class="col">
+    {{!-- <h3 id="dash-review-title">Your Reviews</h3> --}}
+    {{#if Events.length}}
+    <ol class="post-list">
+      {{#each Events as |event|}}
+      <li>
+        {{> event-info event}}
+      </li>
+      {{/each}}
+    </ol>
+    {{else}}
+    <ol id="no-reviews">
+      <li>
+        No events to display yet. Book an event today by select Book an Event above!
+      </li>
+    </ol>
+    {{/if}}
+  </div>
+</section>
+
+<button class="login-link">Cancel Event</button>
+
+<!-- keep this js file to build functionality to cancel an event' -->
+<script src="/javascript/delete-a-book.js"></script>

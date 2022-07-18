@@ -5,7 +5,16 @@ const withAuth = require("../../utils/auth");
 //get /api/reviews
 router.get("/", (req, res) => {
 	Review.findAll({})
-		.then((dbReviewData) => res.json(dbReviewData))
+		.then((dbReviewData) => {
+			const reviews = dbReviewData.map((review) =>
+				review.get({ plain: true })
+			);
+			const loggedIn = req.session.loggedIn;
+			res.render("reviews", {
+				reviews,
+				loggedIn,
+			});
+		})
 		.catch((err) => {
 			console.log(err);
 			res.status(500).json(err);

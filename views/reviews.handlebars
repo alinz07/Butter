@@ -1,0 +1,16 @@
+<!-- iterate over the reviews array to show all reviews -->
+{{#each reviews as |review|}}
+	<div class="comments">
+		<section class="comment">
+			<div>
+				Review by:
+				{{user_id}}
+				on
+				{{createdAt}}
+			</div>
+			<div class="text">
+				{{review_text}}
+			</div>
+		</section>
+	</div>
+{{/each}}

@@ -2,20 +2,15 @@
 
 	<div class="title">
 
-		<h1 id="post-headline">
-			<a href="/api/posts/{{id}}">{{user_id}}</a>
-		</h1>
-
-		<h3 id="post-author">Author: {{date}}</h3>
-
-		<span id="post-user-created">Posted by Bookworm:
+		<h3 id="post-user-created">Event for
 			{{user.username}}
 			on
-			{{address}}</span>
+			{{date}}
+		</h3>
 
-		<p id="post-review">{{time}}</p>
-		<p id="post-review">{{min_price}}</p>
-		<p id="post-review">{{guests}}</p>
+		<p id="post-review">Event start time: {{time}}</p>
+		<p id="post-review">Base price for selected services: {{min_price}}</p>
+		<p id="post-review">Number of guests: {{guests}}</p>
 
 	</div>
 

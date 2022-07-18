@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { User, Event } = require("../../models");
-
+//maybe keep this file for Eli, but otherwise, we use my-events-routes for individ users
 //get /api/events
 router.get("/", (req, res) => {
 	Event.findAll({

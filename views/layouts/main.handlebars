@@ -19,18 +19,21 @@
         <ul id="logout-menu">
           <li>
             {{#if loggedIn}}
-            <a href="/dashboard" class="login-link">
-                Dashboard
+            <a href="/" class="login-link">Home</a>
+          </li>
+          <li>
+            <a href="/my-events" class="login-link">
+                My Events
             </a>
           </li>
           <li>
             <a href="/createNewEvent" class="login-link">Book an event</a>
           </li>
           <li>
-            <a href="/reviews" class="login-link">Reviews</a>
+            <a href="/api/reviews" class="login-link">Reviews</a>
           </li>
           <li>
-            <a href="/services" class="login-link">Service & Pricing</a>
+            <a href="/services-list" class="login-link">Service & Pricing</a>
           </li>
           <li>
             <button href="/" id="logout" class="login-link">Logout</button>
@@ -39,13 +42,16 @@
         </ul>
         <ul id="login-menu">
           <li>
+            <a href="/" class="login-link">Home</a>
+          </li>
+          <li>
             <a href="/login" class="login-link">Login</a>
           </li>
           <li>
-            <a href="/reviews" class="login-link">Reviews</a>
+            <a href="/api/reviews" class="login-link">Reviews</a>
           </li>
           <li>
-            <a href="/services" class="login-link">Services & Pricing</a>
+            <a href="/services-list" class="login-link">Services & Pricing</a>
             {{/if}}
           </li>
         </ul>

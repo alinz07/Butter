@@ -1,0 +1,15 @@
+<!-- iterate over the reviews array to show all reviews -->
+{{#each Services as |service|}}
+	<div class="comments">
+		<section class="comment">
+			<div>
+				Service:
+				{{service_name}}
+			</div>
+			<div class="text">
+				Price:
+				{{price}}
+			</div>
+		</section>
+	</div>
+{{/each}}

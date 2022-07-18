@@ -33,17 +33,17 @@ header > a {
 #login-menu {
 	display: flex;
 	justify-content: center;
-	margin: 25px 0;
+	margin: 15px 0;
 }
 #login-menu > li {
-	margin-right: 20px;
-	margin-left: 20px;
+	margin-right: 35px;
+	margin-left: 35px;
 }
 #logout-menu {
 	display: flex;
 }
 #logout-menu > * {
-	margin: 0 25px;
+	margin: 0 35px;
 }
 #butter {
 	width: 300px;
