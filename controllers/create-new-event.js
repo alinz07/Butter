@@ -26,4 +26,22 @@ router.get("/", withAuth, (req, res) => {
 		});
 });
 
+router.post("/", (req, res) => {
+	Event.create({
+		date: req.body.date,
+		address: req.body.address,
+		time: req.body.time,
+		user_id: req.session.user_id,
+		min_price: req.body.min_price,
+		guests: req.body.guests,
+	})
+		.then((dbEventData) => {
+			res.json(dbEventData);
+		})
+		.catch((err) => {
+			console.log(err);
+			res.status(500).json(err);
+		});
+});
+
 module.exports = router;

@@ -1,9 +1,7 @@
 <section class="container-fluid new-post-container">
 	<div class="row justify-content-around">
 
-		<form class="new-post-form col-sm-6 container">
-
-			<h2>Event Info</h2>
+	  <h2>Event Info</h2>
 
       <section class="container-fluid row align-items-center">
         <div class="col">
@@ -19,50 +17,51 @@
           {{else}}
           <ol id="no-reviews">
             <li>
-              No Events to display yet.
+              No events booked yet.
             </li>
           </ol>
           {{/if}}
         </div>
       </section>
 
+	  <form class="new-post-form col-sm-6 container">
 			<div>
 				<label for="user_id">User_Id:</label>
 				<input
 					type="text"
-					id="book-title"
-					name="book-title"
+					id="user_id"
+					name="user_id"
 					value="{{user_id}}"
 					readonly
 				/>
 			</div>
 
 			<div>
-				<label for="book-author">Date:</label>
-				<input type="text" id="book-author" name="book-author" />
+				<label for="date">Date:</label>
+				<input type="text" id="date" name="date" />
 			</div>
 
 			<div>
-				<label for="book-title">Address:</label>
-				<input type="text" id="book-title" name="book-title" />
+				<label for="address">Address:</label>
+				<input type="text" id="address" name="address" />
 			</div>
 
 			<div>
-				<label for="book-author">Time:</label>
-				<input type="text" id="book-author" name="book-author" />
+				<label for="time">Time:</label>
+				<input type="text" id="time" name="time" />
 			</div>
 			<div>
-				<label for="book-author">Price:</label>
-				<input type="text" id="book-author" name="book-author" />
+				<label for="price">Price:</label>
+				<input type="text" id="price" name="price" />
 			</div>
 			<div>
-				<label for="book-author">Guests:</label>
-				<input type="text" id="book-author" name="book-author" />
+				<label for="guests">Guests:</label>
+				<input type="text" id="guests" name="guests" />
 			</div>
 
 			<button type="submit" class="btn create-post">Request Booking</button>
 
-		</form>
+	  </form>
 
 	</div>
 </section>

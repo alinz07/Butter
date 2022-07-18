@@ -1,152 +1,35 @@
-let spleet = function (string) {
-	let spleetString = "";
-	let stringArr = string.split();
-	for (i = 0; i < stringArr.length; i++) {
-		spleetString += stringArr[i];
-	}
-	return spleetString;
-};
-
-const getBookIdAndPost = function () {
-	let title = document.querySelector('input[name="book-title"]').value.trim();
-	let author = document
-		.querySelector('input[name="book-author"]')
-		.value.trim();
-	let review = document.querySelector("#book-review").value.trim();
-
-	fetch(`/api/books/${title}`, {
-		method: "GET",
-	})
-		.then((response) => {
-			const reader = response.body.getReader();
-
-			return new ReadableStream({
-				start(controller) {
-					function push() {
-						reader.read().then(({ done, value }) => {
-							if (done) {
-								console.log("done", done);
-								controller.close();
-								return;
-							}
-							controller.enqueue(value);
-							console.log(done, value);
-							push();
-						});
-					}
-
-					push();
-				},
-			});
-		})
-		.then((stream) => {
-			return new Response(stream, {
-				headers: { "Content-Type": "application/json" },
-			}).json();
-		})
-		.then((result) => {
-			fetch("/api/posts", {
-				method: "POST",
-				body: JSON.stringify({
-					book_title: title,
-					book_author: author,
-					book_review: review,
-					book_id: result.id,
-				}),
-				headers: {
-					"Content-Type": "application/json",
-				},
-			});
-
-			document.location.replace("/dashboard");
-		});
-};
-
-async function newPostFormHandler(event) {
-	let title = document.querySelector('input[name="book-title"]').value.trim();
-	let author = document
-		.querySelector('input[name="book-author"]')
-		.value.trim();
-	let review = document.querySelector("#book-review").value.trim();
-
+async function newEventFormHandler(event) {
 	event.preventDefault();
 
-	const id = parseInt(
-		window.location.toString().split("/")[
-			window.location.toString().split("/").length - 1
-		]
-	);
+	let user_id = document.querySelector('input[name="user_id"]').value.trim();
+	let date = document.querySelector('input[name="date"]').value.trim();
+	let address = document.querySelector('input[name="address"]').value.trim();
+	let time = document.querySelector('input[name="time"]').value.trim();
+	let min_price = document.querySelector('input[name="price"]').value.trim();
+	let guests = document.querySelector('input[name="guests"]').value.trim();
 
-	if (id > 0) {
-		//book already exists
-		const response = await fetch("/api/posts", {
-			method: "POST",
-			body: JSON.stringify({
-				book_title: title,
-				book_author: author,
-				book_review: review,
-				book_id: id,
-			}),
-			headers: {
-				"Content-Type": "application/json",
-			},
-		});
+	const response = await fetch("/api/events", {
+		method: "POST",
+		body: JSON.stringify({
+			user_id: user_id,
+			date: date,
+			address: address,
+			time: time,
+			min_price: min_price,
+			guests: guests,
+		}),
+		headers: {
+			"Content-Type": "application/json",
+		},
+	});
 
-		if (response.ok) {
-			console.log("cool");
-			document.location.replace("/dashboard");
-		} else {
-			alert(response.statusText);
-		}
+	if (response.ok) {
+		document.location.replace("/my-events");
 	} else {
-		//book doesn't exist so create it
-		let splitTitle = spleet(title);
-		let splitAuthor = spleet(author);
-		//console.log(splitTitle, splitAuthor);
-
-		let apiUrl = `https://lit-oasis-13031.herokuapp.com/https://bookcoverapi.herokuapp.com/getBookCover?bookTitle=${splitTitle}&authorName=${splitAuthor}`;
-		fetch(apiUrl).then(async (response) => {
-			if (response.ok) {
-				response.json().then(async (data) => {
-					const response = await fetch("/api/books", {
-						method: "POST",
-						body: JSON.stringify({
-							book_title: title,
-							book_author: author,
-							cover_url: data.bookCoverUrl,
-						}),
-						headers: {
-							"Content-Type": "application/json",
-						},
-					});
-					if (response.ok) {
-						getBookIdAndPost();
-					} else {
-						alert(response.statusText);
-					}
-				});
-			} else if (!response.ok) {
-				const response = await fetch("/api/books", {
-					method: "POST",
-					body: JSON.stringify({
-						book_title: title,
-						book_author: author,
-						cover_url: null,
-					}),
-					headers: {
-						"Content-Type": "application/json",
-					},
-				});
-				if (response.ok) {
-					getBookIdAndPost();
-				} else {
-					alert(response.statusText);
-				}
-			}
-		});
+		alert(response.statusText);
 	}
 }
 
 document
 	.querySelector(".new-post-form")
-	.addEventListener("submit", newPostFormHandler);
+	.addEventListener("submit", newEventFormHandler);

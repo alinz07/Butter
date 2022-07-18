@@ -61,8 +61,9 @@ router.get("/", (req, res) => {
 // 		});
 // });
 
-//post (create new event) /api/book
+//post (create new event) /api/events
 router.post("/", (req, res) => {
+	console.log(req.body);
 	Event.create(req.body)
 		.then((dbEventData) => res.json(dbEventData))
 		.catch((err) => {
