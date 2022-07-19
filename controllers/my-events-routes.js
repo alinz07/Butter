@@ -6,7 +6,7 @@ const withAuth = require("../utils/auth");
 // get all User's events for dashboard
 // http://localhost:3001/my-events
 router.get("/", withAuth, (req, res) => {
-	console.log(req.session);
+	// console.log(req.session);
 	Event.findAll({
 		where: {
 			user_id: req.session.user_id,
@@ -19,9 +19,13 @@ router.get("/", withAuth, (req, res) => {
 		],
 	}).then((dbEventData) => {
 		const Events = dbEventData.map((Event) => Event.get({ plain: true }));
+		if (req.session.user_id === 4) {
+			var isEli = true;
+		}
 		res.render("my-events", {
 			Events,
 			loggedIn: true,
+			isEli,
 		});
 	});
 });

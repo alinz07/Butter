@@ -1,3 +1,12 @@
+{{#if isEli}}
+	<ul id="logout-menu">
+		<li>
+			<a href="/eliDash" class="login-link">View all events and link to my
+				event calendar</a>
+		</li>
+	</ul>
+{{/if}}
+
 <header>
 	<img id="hero" src="images/cooking.jpg" alt="Eli cooking" />
 	<div id="welcome-div">
@@ -26,13 +35,3 @@
 <div id="carousel">
 	image carousel goes here
 </div>
-<!-- Display all posts -->
-{{!-- <ol class="post-list">
-	{{#each users as |user|}}
-		<li>
-			{{user.id}}
-			{{user.username}}
-			{{user.email}}
-		</li>
-	{{/each}}
-</ol> --}}

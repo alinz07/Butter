@@ -4,20 +4,11 @@ const { User, Event } = require("../models");
 
 // view home page with hero image and all the posts
 router.get("/", (req, res) => {
-	User.findAll({
-		attributes: ["id", "username", "email"],
-	})
-		.then((dbUserData) => {
-			const users = dbUserData.map((user) => user.get({ plain: true }));
-			res.render("homepage", {
-				users,
-				loggedIn: req.session.loggedIn, // only users logged in can see the posts?
-			});
-		})
-		.catch((err) => {
-			console.log(err);
-			res.status(500).json(err);
-		});
+	console.log(req.session.user_id === 4);
+	res.render("homepage", {
+		loggedIn: req.session.loggedIn, // only users logged in can see the posts?
+		isEli: req.session.user_id === 4,
+	});
 });
 
 router.get("/login", (req, res) => {
