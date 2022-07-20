@@ -26,7 +26,7 @@
 
 	  <form class="new-post-form col-sm-6 container">
 			<div>
-				<label for="user_id">User_Id:</label>
+				<label for="user_id">User_Id (we generate this for you)</label>
 				<input
 					type="text"
 					id="user_id"
@@ -37,30 +37,44 @@
 			</div>
 
 			<div>
-				<label for="date">Date:</label>
+				<label for="date">Date (YYYY-MM-DD)</label>
 				<input type="text" id="date" name="date" />
 			</div>
 
 			<div>
-				<label for="address">Address:</label>
+				<label for="address">Address</label>
 				<input type="text" id="address" name="address" />
 			</div>
 
 			<div>
-				<label for="time">Time:</label>
+				<label for="time">Time (HH:MM:SS, must be military time)</label>
 				<input type="text" id="time" name="time" />
 			</div>
 			<div>
-				<label for="price">Price:</label>
-				<input type="text" id="price" name="price" />
+				<label for="price">Price (select the services you're reqeusting)</label>
+				<input class="price-input" type="text" id="price" name="price"/>
 			</div>
 			<div>
-				<label for="guests">Guests:</label>
+				<label for="guests">Guests (estimated number of guests, must be a whole number, not a range)</label>
 				<input type="text" id="guests" name="guests" />
 			</div>
 
 			<button type="submit" class="btn create-post">Request Booking</button>
+	  </form>
 
+      <form class="new-post-form col-sm-6 container service-choices">
+	    <div>
+	  		<label for="breakfast">3 course breakfast $500</label>
+	  		<input class="service-choice" type="radio" id="breakfast" name="service" value="500"/>
+	    </div>
+	    <div>
+	  		<label for="lunch">3 course lunch $400</label>
+	  		<input class="service-choice" type="radio" id="lunch" name="service" value="400"/>
+	    </div>
+	    <div>
+	  		<label for="dinner">3 course dinner $700</label>
+	  		<input class="service-choice" type="radio" id="dinner" name="service" value="700"/>
+	    </div>
 	  </form>
 
 	</div>

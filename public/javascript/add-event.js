@@ -30,6 +30,13 @@ async function newEventFormHandler(event) {
 	}
 }
 
+const radios = document.querySelectorAll(".service-choice");
+for (const radio of radios) {
+	radio.onclick = (e) => {
+		document.querySelector(".price-input").value = e.target.value;
+	};
+}
+
 document
 	.querySelector(".new-post-form")
 	.addEventListener("submit", newEventFormHandler);
