@@ -2,6 +2,9 @@
 
 {{#if isEli}}
 <section>
+  <h1 class="numEvents">
+    {{numEvents}} event(s) on the books
+  </h1>
   <div>
     <a href="https://calendly.com/generaliroh91127/catering" target="_blank" class="login-link">Manage my events calendar on calendly in a new tab</a>
   </div>
@@ -18,7 +21,7 @@
       <li>
         {{> event-info event}}
       </li>
-      <button class="login-link">Cancel Event</button>
+      <button class="login-link cancel-event-btn" id={{id}}>Cancel Event</button>
       {{/each}}
     </ol>
     {{else}}
@@ -32,4 +35,4 @@
 </section>
 
 <!-- keep this js file to build functionality to cancel an event' -->
-<script src="/javascript/delete-a-book.js"></script>
+<script src="/javascript/delete-an-event.js"></script>

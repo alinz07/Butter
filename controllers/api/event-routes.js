@@ -7,7 +7,7 @@ router.get("/", (req, res) => {
 		include: [
 			{
 				model: User,
-				attributes: ["username"],
+				attributes: ["username", "email"],
 				as: "user",
 			},
 		],
@@ -98,24 +98,26 @@ router.post("/", (req, res) => {
 // 		});
 // });
 
-//delete /api/books/1
-// router.delete("/:id", (req, res) => {
-// 	Book.destroy({
-// 		where: {
-// 			id: req.params.id,
-// 		},
-// 	})
-// 		.then((dbBookData) => {
-// 			if (!dbBookData) {
-// 				res.status(404).json({ message: "No book found with this id" });
-// 				return;
-// 			}
-// 			res.json(dbBookData);
-// 		})
-// 		.catch((err) => {
-// 			console.log(err);
-// 			res.status(500).json(err);
-// 		});
-// });
+// delete /api/events
+router.delete("/", (req, res) => {
+	Event.destroy({
+		where: {
+			id: req.body.event_id,
+		},
+	})
+		.then((dbEventData) => {
+			if (!dbEventData) {
+				res.status(404).json({
+					message: "No Event found with this id",
+				});
+				return;
+			}
+			res.json(dbEventData);
+		})
+		.catch((err) => {
+			console.log(err);
+			res.status(500).json(err);
+		});
+});
 
 module.exports = router;

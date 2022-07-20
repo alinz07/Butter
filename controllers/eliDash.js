@@ -11,15 +11,17 @@ router.get("/", withAuth, (req, res) => {
 		include: [
 			{
 				model: User,
-				attributes: ["username"],
+				attributes: ["username", "email"],
 			},
 		],
 	}).then((dbEventData) => {
 		const Events = dbEventData.map((Event) => Event.get({ plain: true }));
+		const numEvents = Events.length;
 		res.render("my-events", {
 			Events,
 			loggedIn: true,
 			isEli: true,
+			numEvents,
 		});
 	});
 });

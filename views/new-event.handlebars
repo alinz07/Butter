@@ -1,7 +1,7 @@
 <section class="container-fluid new-post-container">
 	<div class="row justify-content-around">
 
-	  <h2>Event Info</h2>
+	  <h2 class="book-event">Thank you for booking an event! All bookings are requests and will appear in your events before I've confirmed availablity. Once I review your event and my availability, I will email you at the email address provided to confirm your event. I look forward to working with you!</h2>
 
       <section class="container-fluid row align-items-center">
         <div class="col">
@@ -24,7 +24,7 @@
         </div>
       </section>
 
-	  <form class="new-post-form col-sm-6 container">
+	  <form class="new-post-form col-sm-6 container" action="mailto:tonyllinz@gmail.com" method="post" enctype="text/plain">
 			<div>
 				<label for="user_id">User_Id (we generate this for you)</label>
 				<input
@@ -58,8 +58,8 @@
 				<label for="guests">Guests (estimated number of guests, must be a whole number, not a range)</label>
 				<input type="text" id="guests" name="guests" />
 			</div>
-
-			<button type="submit" class="btn create-post">Request Booking</button>
+			<input type="submit" value="Request Booking" class="btn create-post" />
+			{{!-- <button type="submit" class="btn create-post">Request Booking</button> --}}
 	  </form>
 
       <form class="new-post-form col-sm-6 container service-choices">

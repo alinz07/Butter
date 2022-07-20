@@ -134,6 +134,10 @@ ul {
 	font-size: 20px;
 	margin-left: 10px;
 }
+.numEvents,
+.book-event {
+	color: darkgoldenrod;
+}
 .add-book-btn {
 	color: green;
 	font-weight: bolder;

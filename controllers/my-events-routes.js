@@ -14,11 +14,12 @@ router.get("/", withAuth, (req, res) => {
 		include: [
 			{
 				model: User,
-				attributes: ["username"],
+				attributes: ["username", "email"],
 			},
 		],
 	}).then((dbEventData) => {
 		const Events = dbEventData.map((Event) => Event.get({ plain: true }));
+		const numEvents = Events.length;
 		if (req.session.user_id === 4) {
 			var isEli = true;
 		}
@@ -26,6 +27,7 @@ router.get("/", withAuth, (req, res) => {
 			Events,
 			loggedIn: true,
 			isEli,
+			numEvents,
 		});
 	});
 });

@@ -6,6 +6,13 @@ const withAuth = require("../utils/auth");
 // gets from /createNewEvent
 router.get("/", withAuth, (req, res) => {
 	Event.findAll({
+		include: [
+			{
+				model: User,
+				attributes: ["username", "email"],
+				as: "user",
+			},
+		],
 		order: ["event_id"],
 		where: {
 			user_id: req.session.user_id,
