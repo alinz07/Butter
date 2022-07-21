@@ -135,6 +135,8 @@ ul {
 	margin-left: 10px;
 }
 .numEvents,
+.eli-del-btn,
+.del-review-form > div > label,
 .book-event {
 	color: darkgoldenrod;
 }

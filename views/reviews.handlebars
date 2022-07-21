@@ -1,7 +1,22 @@
+{{#if loggedIn}}
+	<form class="new-post-form col-sm-6 container">
+		<div>
+			<label for="review_text">Please leave a review if you enjoyed my
+				services!</label>
+			<input type="textarea" id="review_text" name="review-text" />
+		</div>
+		<button type="submit" class="btn create-post">Submit Review</button>
+	</form>
+{{/if}}
+
 <!-- iterate over the reviews array to show all reviews -->
 {{#each reviews as |review|}}
 	<div class="comments">
 		<section class="comment">
+			<div>
+				Review Id:
+				{{id}}
+			</div>
 			<div>
 				Review by:
 				{{user_id}}
@@ -14,3 +29,15 @@
 		</section>
 	</div>
 {{/each}}
+
+{{#if isEli}}
+	<form class="del-review-form col-sm-6 container">
+		<div>
+			<label for="review-id">ID of review I'm deleting</label>
+			<input type="text" id="review-id" name="review-id" />
+		</div>
+		<button type="submit" class="btn del-review create-post">Delete Review</button>
+	</form>
+{{/if}}
+
+<script src="/javascript/edit-reviews.js"></script>

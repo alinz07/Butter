@@ -2,19 +2,9 @@ const router = require("express").Router();
 const { User, Review } = require("../../models");
 const withAuth = require("../../utils/auth");
 
-//get /api/reviews
 router.get("/", (req, res) => {
 	Review.findAll({})
-		.then((dbReviewData) => {
-			const reviews = dbReviewData.map((review) =>
-				review.get({ plain: true })
-			);
-			const loggedIn = req.session.loggedIn;
-			res.render("reviews", {
-				reviews,
-				loggedIn,
-			});
-		})
+		.then((dbReviewData) => res.json(dbReviewData))
 		.catch((err) => {
 			console.log(err);
 			res.status(500).json(err);
@@ -34,25 +24,27 @@ router.post("/", withAuth, (req, res) => {
 		});
 });
 
-//delete a Review /api/Reviews/1
-// router.delete("/:id", (req, res) => {
-// 	// add withAuth() function later?
-// 	Review.destroy({
-// 		where: {
-// 			id: req.params.id,
-// 		},
-// 	})
-// 		.then((dbReviewData) => {
-// 			if (!dbReviewData) {
-// 				res.status(404).json({ message: "No post found with this id" });
-// 				return;
-// 			}
-// 			res.json(dbReviewData);
-// 		})
-// 		.catch((err) => {
-// 			console.log(err);
-// 			res.status(500).json(err);
-// 		});
-// });
+//delete a Review /api/Reviews/:id
+router.delete("/", (req, res) => {
+	// add withAuth() function later?
+	Review.destroy({
+		where: {
+			id: req.body.review_id,
+		},
+	})
+		.then((dbReviewData) => {
+			if (!dbReviewData) {
+				res.status(404).json({
+					message: "No review found with this id",
+				});
+				return;
+			}
+			res.json(dbReviewData);
+		})
+		.catch((err) => {
+			console.log(err);
+			res.status(500).json(err);
+		});
+});
 
 module.exports = router;

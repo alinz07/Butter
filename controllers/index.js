@@ -5,6 +5,7 @@ const myEventsRoutes = require("./my-events-routes.js");
 const servicesListRoutes = require("./services-list-routes");
 const createNewEventRoutes = require("./create-new-event.js");
 const eliRoutes = require("./eliDash.js");
+const reviewsRoutes = require("./reviews-routes.js");
 
 router.use("/", homeRoutes);
 router.use("/api", apiRoutes);
@@ -12,6 +13,7 @@ router.use("/my-events", myEventsRoutes);
 router.use("/services-list", servicesListRoutes);
 router.use("/createNewEvent", createNewEventRoutes);
 router.use("/eliDash", eliRoutes);
+router.use("/reviews", reviewsRoutes);
 
 router.use((req, res) => {
 	res.status(404).end();
