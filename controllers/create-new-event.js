@@ -6,17 +6,17 @@ const withAuth = require("../utils/auth");
 // gets from /createNewEvent
 router.get("/", withAuth, (req, res) => {
 	Event.findAll({
-		include: [
-			{
-				model: User,
-				attributes: ["username", "email"],
-				as: "user",
-			},
-		],
+		// include: [
+		// 	{
+		// 		model: User,
+		// 		attributes: ["username", "email"],
+		// 		as: "user",
+		// 	},
+		// ],
 		order: ["event_id"],
-		where: {
-			user_id: req.session.user_id,
-		},
+		// where: {
+		// 	user_id: req.session.user_id,
+		// },
 	})
 		.then((dbEventData) => {
 			const events = dbEventData.map((event) =>
@@ -25,7 +25,7 @@ router.get("/", withAuth, (req, res) => {
 			res.render("new-event", {
 				events,
 				loggedIn: true,
-				user_id: req.session.user_id,
+				// user_id: req.session.user_id,
 			});
 		})
 		.catch((err) => {
@@ -38,7 +38,7 @@ router.post("/", (req, res) => {
 		date: req.body.date,
 		address: req.body.address,
 		time: req.body.time,
-		user_id: req.session.user_id,
+		client_name: req.body.client_name,
 		min_price: req.body.min_price,
 		guests: req.body.guests,
 	})

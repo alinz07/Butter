@@ -11,13 +11,17 @@ Event.init(
 			primaryKey: true,
 			autoIncrement: true,
 		},
-		user_id: {
-			type: DataTypes.INTEGER,
+		// user_id: {
+		// 	type: DataTypes.INTEGER,
+		// 	allowNull: false,
+		// 	references: {
+		// 		model: "user",
+		// 		key: "id",
+		// 	},
+		// },
+		client_name: {
+			type: DataTypes.STRING,
 			allowNull: false,
-			references: {
-				model: "user",
-				key: "id",
-			},
 		},
 		date: {
 			type: DataTypes.DATE,

@@ -8,12 +8,12 @@ const withAuth = require("../utils/auth");
 router.get("/", withAuth, (req, res) => {
 	// console.log(req.session);
 	Event.findAll({
-		include: [
-			{
-				model: User,
-				attributes: ["username", "email"],
-			},
-		],
+		// include: [
+		// 	{
+		// 		model: User,
+		// 		attributes: ["username", "email"],
+		// 	},
+		// ],
 	}).then((dbEventData) => {
 		const Events = dbEventData.map((Event) => Event.get({ plain: true }));
 		const numEvents = Events.length;

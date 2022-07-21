@@ -4,13 +4,13 @@ const { User, Event } = require("../../models");
 //get /api/events
 router.get("/", (req, res) => {
 	Event.findAll({
-		include: [
-			{
-				model: User,
-				attributes: ["username", "email"],
-				as: "user",
-			},
-		],
+		// include: [
+		// 	{
+		// 		model: User,
+		// 		attributes: ["username", "email"],
+		// 		as: "user",
+		// 	},
+		// ],
 	})
 		.then((dbEventData) => res.json(dbEventData))
 		.catch((err) => {

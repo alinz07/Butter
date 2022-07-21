@@ -8,19 +8,20 @@ const withAuth = require("../utils/auth");
 router.get("/", withAuth, (req, res) => {
 	// console.log(req.session);
 	Event.findAll({
-		where: {
-			user_id: req.session.user_id,
-		},
-		include: [
-			{
-				model: User,
-				attributes: ["username", "email"],
-			},
-		],
+		// this was used when users could login and view events
+		// where: {
+		// 	user_id: req.session.user_id,
+		// },
+		// include: [
+		// 	{
+		// 		model: User,
+		// 		attributes: ["username", "email"],
+		// 	},
+		// ],
 	}).then((dbEventData) => {
 		const Events = dbEventData.map((Event) => Event.get({ plain: true }));
 		const numEvents = Events.length;
-		if (req.session.user_id === 4) {
+		if (req.session.user_id === 1) {
 			var isEli = true;
 		}
 		res.render("my-events", {

@@ -9,6 +9,42 @@
     <a href="https://calendly.com/generaliroh91127/catering" target="_blank" class="login-link">Manage my events calendar on calendly in a new tab</a>
   </div>
 </section>
+
+<form class="new-post-form col-sm-6 container">
+			<div>
+				<label for="user_id">Client name</label>
+				<input
+					type="text"
+					id="client-name"
+					name="client-name"
+				/>
+			</div>
+
+			<div>
+				<label for="date">Date (YYYY-MM-DD)</label>
+				<input type="text" id="date" name="date" />
+			</div>
+
+			<div>
+				<label for="address">Address</label>
+				<input type="text" id="address" name="address" />
+			</div>
+
+			<div>
+				<label for="time">Time (HH:MM:SS, must be military time)</label>
+				<input type="text" id="time" name="time" />
+			</div>
+			<div>
+				<label for="price">Price (select the services you're reqeusting)</label>
+				<input class="price-input" type="text" id="price" name="price"/>
+			</div>
+			<div>
+				<label for="guests">Guests (estimated number of guests, must be a whole number, not a range)</label>
+				<input type="text" id="guests" name="guests" />
+			</div>
+			<button type="submit" class="btn create-post">Request Booking</button>
+	  </form>
+
 {{/if}}
 
 <!-- View all user's events -->
@@ -34,5 +70,5 @@
   </div>
 </section>
 
-<!-- keep this js file to build functionality to cancel an event' -->
 <script src="/javascript/delete-an-event.js"></script>
+<script src="/javascript/add-event.js"></script>

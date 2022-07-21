@@ -11,7 +11,7 @@ router.get("/", (req, res) => {
 			);
 			const loggedIn = req.session.loggedIn;
 			const userId = req.session.user_id;
-			const isEli = req.session.user_id === 4;
+			const isEli = req.session.user_id === 1;
 			res.render("reviews", {
 				reviews,
 				loggedIn,

@@ -8,16 +8,16 @@ User.hasMany(Event, {
 	onDelete: "CASCADE",
 });
 
-Event.belongsTo(User, {
-	foreignKey: "user_id",
-});
+// Event.belongsTo(User, {
+// 	foreignKey: "user_id",
+// });
 
-Review.belongsTo(User, {
-	foreignKey: "user_id",
-});
+// Review.belongsTo(User, {
+// 	foreignKey: "user_id",
+// });
 
-User.hasMany(Review, {
-	foreignKey: "user_id",
-});
+// User.hasMany(Review, {
+// 	foreignKey: "user_id",
+// });
 
 module.exports = { User, Event, Review, Service };
