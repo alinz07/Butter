@@ -12,17 +12,22 @@
 
 <form class="new-post-form col-sm-6 container">
 			<div>
-				<label for="user_id">Client name</label>
+				<label for="client_name">Client name</label>
 				<input
 					type="text"
-					id="client-name"
-					name="client-name"
+					id="client_name"
+					name="client_name"
 				/>
 			</div>
 
 			<div>
-				<label for="date">Date (YYYY-MM-DD)</label>
-				<input type="text" id="date" name="date" />
+				<label for="client_email">Client Email</label>
+				<input type="text" id="client_email" name="client_email" />
+			</div>
+
+			<div>
+				<label for="client_phone">Client Phone Number</label>
+				<input type="text" id="client_phone" name="client_phone" />
 			</div>
 
 			<div>
@@ -31,17 +36,25 @@
 			</div>
 
 			<div>
-				<label for="time">Time (HH:MM:SS, must be military time)</label>
-				<input type="text" id="time" name="time" />
+				<label for="guests">Guests (estimated number of guests, must be a whole number, not a range)</label>
+				<input type="text" id="guests" name="guests" />
 			</div>
+
 			<div>
 				<label for="price">Price (select the services you're reqeusting)</label>
 				<input class="price-input" type="text" id="price" name="price"/>
 			</div>
+
 			<div>
-				<label for="guests">Guests (estimated number of guests, must be a whole number, not a range)</label>
-				<input type="text" id="guests" name="guests" />
+				<label for="date">Event Date (YYYY-MM-DD)</label>
+				<input type="text" id="date" name="date" />
 			</div>
+
+			<div>
+				<label for="time">Time (HH:MM:SS, must be military time)</label>
+				<input type="text" id="time" name="time" />
+			</div>
+			
 			<button type="submit" class="btn create-post">Request Booking</button>
 	  </form>
 

@@ -12,10 +12,10 @@ router.get("/", (req, res) => {
 });
 
 //post (or create Review) /api/Reviews
-router.post("/", withAuth, (req, res) => {
+router.post("/", (req, res) => {
 	Review.create({
 		review_text: req.body.review_text,
-		user_id: req.session.user_id,
+		customer_name: req.body.customer_name,
 	})
 		.then((dbReviewData) => res.json(dbReviewData))
 		.catch((err) => {

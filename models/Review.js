@@ -18,15 +18,19 @@ Review.init(
 				len: [1],
 			},
 		},
-		user_id: {
-			type: DataTypes.INTEGER,
+		customer_name: {
+			type: DataTypes.STRING,
 			allowNull: false,
-			references: {
-				model: "user",
-				key: "id",
-			},
-			onDelete: "CASCADE",
 		},
+		// user_id: {
+		// 	type: DataTypes.INTEGER,
+		// 	allowNull: false,
+		// 	references: {
+		// 		model: "user",
+		// 		key: "id",
+		// 	},
+		// 	onDelete: "CASCADE",
+		// },
 	},
 	{
 		sequelize,

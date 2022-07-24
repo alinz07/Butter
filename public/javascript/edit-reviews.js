@@ -4,21 +4,30 @@ async function addReviewClickHandler(e) {
 	let reviewText = document
 		.querySelector('input[name="review-text"]')
 		.value.trim();
+	let customerName = document
+		.querySelector('input[name="customer_name"]')
+		.value.trim();
+	let code = document.querySelector('input[name="code"]').value.trim();
 	// console.log("running", userId);
 
-	const response = await fetch("/api/reviews", {
-		method: "POST",
-		body: JSON.stringify({
-			review_text: reviewText,
-		}),
-		headers: {
-			"Content-Type": "application/json",
-		},
-	});
-	if (response.ok) {
-		document.location.replace("/reviews");
+	if (code === "8675309") {
+		const response = await fetch("/api/reviews", {
+			method: "POST",
+			body: JSON.stringify({
+				review_text: reviewText,
+				customer_name: customerName,
+			}),
+			headers: {
+				"Content-Type": "application/json",
+			},
+		});
+		if (response.ok) {
+			document.location.replace("/reviews");
+		} else {
+			alert(response.statusText);
+		}
 	} else {
-		alert(response.statusText);
+		alert("review code invalid");
 	}
 }
 

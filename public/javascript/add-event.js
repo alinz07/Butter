@@ -2,7 +2,13 @@ async function newEventFormHandler(event) {
 	event.preventDefault();
 
 	let client_name = document
-		.querySelector('input[name="client-name"]')
+		.querySelector('input[name="client_name"]')
+		.value.trim();
+	let client_phone = document
+		.querySelector('input[name="client_phone"]')
+		.value.trim();
+	let client_email = document
+		.querySelector('input[name="client_email"]')
 		.value.trim();
 	let date = document.querySelector('input[name="date"]').value.trim();
 	let address = document.querySelector('input[name="address"]').value.trim();
@@ -14,6 +20,8 @@ async function newEventFormHandler(event) {
 		method: "POST",
 		body: JSON.stringify({
 			client_name: client_name,
+			client_email: client_email,
+			client_phone: client_phone,
 			date: date,
 			address: address,
 			time: time,

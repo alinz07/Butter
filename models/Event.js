@@ -23,6 +23,22 @@ Event.init(
 			type: DataTypes.STRING,
 			allowNull: false,
 		},
+		client_email: {
+			type: DataTypes.STRING,
+			allowNull: false,
+			// insert email regex
+			// validate: {
+
+			// }
+		},
+		client_phone: {
+			type: DataTypes.STRING,
+			allowNull: false,
+			// insert phone regex
+			// validate: {
+
+			// }
+		},
 		date: {
 			type: DataTypes.DATE,
 			allowNull: false,
