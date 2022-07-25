@@ -51,28 +51,16 @@ So that my business gains a more professional reputation and is easier to manage
     then pricing information about my services is available
 
 -   When they select book now <br/>
-    then they are taken to a page where my calendar is visible
+    then they are taken to my calendly event page
 
--   When they view the page with my calendar <br/>
-    they they can see when I'm available and select a date/time to request a booking
-
--   When Eli views a booking request <br/>
-    then he can choose to accept it or reject it
-
--   When Eli accepts a request <br/>
-    then that time slot is filled on his calendar
-
--   When a user logs in <br/>
-    then they are able to see if their request has been accepted or not
-
--   When a user is logged in <br/>
-    then they can navigate to their events page
-
--   When a user selects an event <br/>
-    then they are routed to a single event page where they are able to leave comments
+-   When a user navigates to reviews <br/>
+    then they are presented with all reviews and the option to leave a review if they have the passcode
 
 -   When Eli logs in <br/>
-    then he has a nav tab where he can view all booked events on one page
+    then he has a nav tab where he can navigate to my-events to add events from calendly, view all events he's created and also navigate to calendly to view his calendar
+
+-   When Eli is logged-in <br/>
+    then he is able to delete reviews by review id and also cancel events he's created
 
 <br/>
 
