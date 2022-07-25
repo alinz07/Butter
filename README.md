@@ -18,29 +18,23 @@
 
 ## **Motivation and Code Overview**
 
-Propagatorz is a "plant help line" web application that allows users to share photos and notes regarding thier house plants.
-Users will need to login or sign up first in order to start taking part in the discussions. Feel free to login with: betty@email.com and password: password. We're in the process of migrating the site to a faster host, but once accessed, the Single Page Application is very fast thanks to React. </br>
+Butter is an application to help an entrepreneur manage their private catering business. Clients can view services and their prices, read reviews that are protected by a passcode and able to be deleted by the business owner, and book an event by following the link to the business owner's calendly event page.</br>
 
-The app is organized in typical React fashion with a client folder and server folder. The server holds the db configuration, db models, schemas and utilities that support the models. The client folder holds all of the function components and page components as well as the build folder that uses webpack to minify and serve the React assets. The client side also has all of the mongoose and graphql queries/mutations/actions/reducers that are ran inside the components.
+This application follows the MVC paradigm with mySQL and sequelize as the database and ORM, using Handlebars.js for the views, and express and express session with cookies for the controllers.
 
 </br>
 
 ## **Technologies Used**
 
--   React
--   CSS Framework
--   [Mui](https://mui.com/material-ui/getting-started/installation/)
+-   CSS and Bootstrap
+-   mysql2
+-   Sequelize
 -   Node
 -   Express
 -   Bcrypt
--   MongoDB
--   Mongoose
--   GraphQL
--   Apollo Server
--   [Cloudinary](https://cloudinary.com/)
--   Nodemon
 -   Day.js
--   JSON Web Tokens (JWT)
+-   Express-session
+-   Handlebars.js
 
 </br>
 
@@ -114,7 +108,7 @@ This will start the application on port 3001 of your local machine. Open your br
 
 ## **Screenshot**
 
-![Screenshot](./ImagesForReadMe/homepage.png) <br/>
+![Screenshot](./public/images/butter-homepage.jpg) <br/>
 
 </br>
 
